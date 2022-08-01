@@ -87,4 +87,13 @@ ON a.id = b.employee_id
 GROUP BY location
 
 
+8. Average Salaries
+
+Compare each employee's salary with the average salary of the corresponding department.
+Output the department, first name, and salary of employees along with the average salary of that department.
+
+
+SELECT department,first_name,salary,avg(salary) OVER (PARTITION BY department)
+from employee
+
 
