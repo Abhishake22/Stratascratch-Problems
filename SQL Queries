@@ -108,5 +108,24 @@ FROM airbnb_search_details
 GROUP BY city,property_type
 
 
+10. Write a query that calculates the difference between the highest salaries found in the marketing and engineering departments.
+    Output just the absolute difference in salaries.
+
+SELECT ABS((SELECT MAX(salary)
+FROM db_employee a
+JOIN db_dept b
+ON a.department_id = b.id
+WHERE b.department = 'marketing') -
+(SELECT MAX(salary)
+FROM db_employee a
+JOIN db_dept b
+ON a.department_id = b.id
+WHERE b.department = 'engineering')) AS Salary_difference
+
+
+
+
+
+
 
 
